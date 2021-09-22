@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce 1</title>
+    <style>
+        #input_box{
+            background-image: url("data:image/png;base64,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");
+        }
+        #input_box div {
+            margin-left: 40%;
+        }
+        input{
+            width: 200px;
+            height: 35px;
+        }
+        label{
+            font-size: 30px;
+        }
+        #price{
+            margin-left: 10px;
+        }
+        button{
+            width: 100px;
+            margin-left: 200px;
+        }
+        #product_list{
+            width: 450px;
+            margin: auto;
+            font-size: 25px;
+            text-align: center;
+        }
+        tr{
+            background-color: orange;
+        }
+        td{
+            width: 33%;
+          padding: 0px 30px;
+        }
+
+    </style>
+</head>
+<body>
+      <div id="input_box">
+        <div>
+            <label>Name of Product :</label>
+        <input type="text" placeholder="product name" id="product"/><br/><br/>
+        <label>Price of Product :</label>
+        <input type="number" placeholder="Price" id="price"/><br/><br/>
+        <label>Image of Product:</label>
+        <input type="url" placeholder="Image" id="image"/><br/><br/>
+        <button id="submit">Submit</button>
+        </div>
+      </div>
+    <hr/>
+   <table id="product_list"  >
+       <tr>
+          
+       </tr>     
+   </table>
+    <script >
+           var  list = [];
+           function addlist(){
+             
+            var pro_name = document.getElementById('product').value;
+             var pro_price = document.getElementById('price').value;
+             var pro_img = document.getElementById('image').value;
+
+
+             if(!pro_name || !pro_price || !pro_img ){
+                 alert('fill all detalis');
+                 return
+             }
+           if(localStorage.getItem('product_name') == null){
+               localStorage.setItem('product_name','[]');
+              
+           }
+           if(localStorage.getItem('product_price') == null){
+               localStorage.setItem('product_price','[]');
+               
+           }
+           if(localStorage.getItem('product_image') == null){
+               localStorage.setItem('product_image','[]');
+               
+           }
+           
+           var old_name = JSON.parse(localStorage.getItem('product_name'));
+           old_name.push(pro_name);
+           localStorage.setItem('product_name',JSON.stringify(old_name));
+
+           var old_price = JSON.parse(localStorage.getItem('product_price'));
+           old_price.push(pro_price);
+           localStorage.setItem('product_price',JSON.stringify(old_price));
+
+           var old_image = JSON.parse(localStorage.getItem('product_image'));
+           old_image.push(pro_img);
+           localStorage.setItem('product_image',JSON.stringify(old_image));
+
+      
+                   const load = {
+                   name:pro_name,
+                   price:pro_price,
+                   image:pro_img
+               }
+               list.push(load);
+               localStorage.setItem('lists_product',JSON.stringify(list));
+               const item = document.getElementById('product_list');
+               displaylist(list,item);
+            }
+
+           function displaylist(list,item){
+
+                 item.textContent="";
+                
+               for( let i =0 ;i<list.length;i++){
+                let ul = document.createElement("tr");
+                  
+                   let li = document.createElement('td');
+                   li.textContent = list[i].name ;
+                   li.style.paddingRight = "15px";
+
+                   let li1 = document.createElement('td');
+                   li1.textContent = list[i].price;
+                   li1.style.paddingRight = "15px";
+
+                   let li2 = document.createElement('img');
+                   li2.setAttribute("src","https://images.unsplash.com/photo-1517146783983-418c681b56c5?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8ZmFicmljfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=60&q=80")
+
+                     ul.append(li);
+                     ul.append(li1);
+                     ul.append(li2);
+                     item.append(ul);
+               }      
+           }
+
+           function handleload(){
+            const data = JSON.parse(localStorage.getItem("lists_product"));
+            const item = document.getElementById('product_list');
+
+               if(data){
+                   list = data;
+                   displaylist(data,item);
+               }
+           }
+           window.addEventListener('click',function(){
+               var submit_btn = document.getElementById('submit');
+               submit_btn.addEventListener('click',addlist);
+
+               handleload();
+           })
+    </script>
+    
+</body>
+</html>
