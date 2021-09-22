@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce 2</title>
+</head>
+<style>
+    body{
+        background-color: burlywood;
+    }
+    table{
+        width: 600px;
+        /* border: 1px solid black; */
+        margin: auto;
+        font-size: 25px;
+        background-color: cornsilk;
+    }
+    td{
+        padding-right: 20px;
+        padding-top: 10px;
+        width: 100px;
+    }
+    tr{
+        width: 150px;
+        text-align: center;
+    }
+</style>
+<body>
+    <table >
+
+    </table>
+    <script>
+               var cart_name = [];
+               var cart_price = [];
+               var cart_img = [];
+
+               var name1 = JSON.parse(localStorage.getItem("product_name"));
+
+               var price = JSON.parse(localStorage.getItem("product_price"));
+               
+               var image = JSON.parse(localStorage.getItem("product_image"));
+               var tab = document.querySelector('table');
+               
+              for(var i = 0;i<name1.length;i++){
+                  var row = document.createElement('tr');
+
+                  var cell = document.createElement('td');
+                  cart_name.push(name1[i]);
+                  cell.textContent=name1[i];
+
+                  var cell2 = document.createElement('td');
+                  cart_price.push(price[i]);
+                  cell2.textContent=price[i];
+
+                //   var cell3 = document.createElement('td');
+                //   cart_img.push(image[i]);
+                //   cell3.textContent=image[i];
+                  var cell3 = document.createElement('img');
+                  cart_img.push(image[i]);
+                  cell3.setAttribute("src","https://images.unsplash.com/photo-1517146783983-418c681b56c5?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8ZmFicmljfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=80&q=80")
+
+                  var cell4 = document.createElement('td');
+                  cell4.textContent ="Add cart";
+                  cell4.addEventListener('click',cart);
+
+                  row.append(cell);
+                  row.append(cell2);
+                  row.append(cell3);
+                  row.append(cell4);
+
+                  tab.append(row);
+
+              }
+               localStorage.setItem('cartName',JSON.stringify(cart_name));
+
+               localStorage.setItem('cartPrice',JSON.stringify(cart_price))
+                  
+                localStorage.setItem('cartImage',JSON.stringify(cart_img));
+
+                var produ_name = [];
+                 var produ_price = [];
+                //  var produ_image = [];
+
+               function cart(e){
+               var parent = e.target.parentNode;
+
+                var a = parent.childNodes[0].textContent;
+                var b = parent.childNodes[1].textContent;
+                // var c = parent.childNodes[2].textContent;
+               
+                 if(produ_name.length == 0){
+                     produ_name.push(a);
+                     localStorage.setItem('cart_name',JSON.stringify(produ_name));
+                     produ_price.push(b);
+                     localStorage.setItem('cart_price',JSON.stringify(produ_price));
+                    //  produ_image.push(c);
+                    //  localStorage.setItem('cart_image',JSON.stringify(produ_image));
+                 }
+                 else {
+                     var count = 0;
+                    for(let i =0;i<produ_name.length;i++){
+                        if(a == produ_name[i] || b == produ_price ){
+                            count++;
+                         alert('if you try to add a product that is already in the cart');        
+                        }
+                    }
+                    if(count == 0){
+                        produ_name.push(a);
+                     localStorage.setItem('cart_name',JSON.stringify(produ_name));
+                     produ_price.push(b);
+                     localStorage.setItem('cart_price',JSON.stringify(produ_price));
+                    //  produ_image.push(c);
+                    //  localStorage.setItem('cart_image',JSON.stringify(produ_image));
+                  
+                    }  
+                 }
+               }
+
+              
+    </script>
+</body>
+</html>
