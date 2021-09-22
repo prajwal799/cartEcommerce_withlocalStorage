@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce 3</title>
+</head>
+      <style>
+        body{
+          background-image: url('https://i.pinimg.com/originals/15/4f/df/154fdf2f2759676a96e9aed653082276.png');
+          background-color: #5aebfe;
+        }
+        h3{
+          margin-left: 85%;
+          font-size: 30px;
+          margin-top: 20px;
+          margin-bottom: 60px;
+        }
+        table{
+          width: 450px;
+          margin: auto;
+          background-color: white;
+          text-align: center;
+          font-size: 25px;
+          color: rgb(128, 30, 0);
+        }
+
+      </style>
+<body>
+    <h3 id="no_item"></h3>
+    <h3 id="total_price"></h3>
+    <table>
+
+    </table>
+    <script>
+              var name1 = JSON.parse(localStorage.getItem("cart_name"));
+
+                var price = JSON.parse(localStorage.getItem("cart_price"));
+
+                var image = JSON.parse(localStorage.getItem("cart_image"));
+                var tab = document.querySelector('table');
+
+                var no_items = document.getElementById('no_item');
+                no_items.textContent ="Total Item in cart :" + name1.length ;
+
+                 var total = document.getElementById('total_price');
+                 let total_price = 0;
+                 for(let i =0;i<price.length;i++){
+                      total_price = Number(price[i]) + total_price;
+                 }
+                 total.textContent =  "Total Price of item :" +total_price;
+
+              var count =0;
+                for(var i = 0;i<name1.length;i++){
+                var row = document.createElement('tr');
+
+                var cell = document.createElement('td');
+                cell.textContent=name1[i];
+
+                var cell2 = document.createElement('td');
+                cell2.textContent=price[i];
+
+
+                var cell3 = document.createElement('img');
+                cell3.setAttribute("src","https://images.unsplash.com/photo-1517146783983-418c681b56c5?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8ZmFicmljfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=80&q=80")
+                
+               
+                row.append(cell);
+                row.append(cell2);
+                row.append(cell3);
+
+                tab.append(row);
+
+                }
+    </script>
+</body>
+</html>
